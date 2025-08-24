@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Industry Quadrant Journey Analysis</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="stylesheet" href="../static/css/journey.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <div class="modern-container">
+        <header class="modern-header">
+            <div class="header-content">
+                <div class="header-title">
+                    <div class="title-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="title-text">
+                        <h1>Industry Quadrant Journey</h1>
+                        <p>Advanced technical analysis for sector momentum and relative strength</p>
+                    </div>
+                </div>
+                <nav class="modern-nav">
+                    <a href="/journey-smoothed" class="nav-btn">
+                        <i class="fas fa-wave-square"></i>
+                        <span>Smoothed Chart</span>
+                    </a>
+                    <a href="/" class="nav-btn">
+                        <i class="fas fa-arrow-left"></i>
+                        <span>Back to Dashboard</span>
+                    </a>
+                </nav>
+            </div>
+        </header>
+
+        <div class="modern-controls">
+            <div class="controls-card">
+                <div class="control-section">
+                    <div class="control-item">
+                        <label for="periodSelect">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span>Analysis Period</span>
+                        </label>
+                        <select id="periodSelect" class="modern-select">
+                            <option value="30" selected>Last 30 Days</option>
+                            <option value="90">Last 90 Days</option>
+                            <option value="180">Last 180 Days</option>
+                        </select>
+                    </div>
+                    
+                    <div class="control-item">
+                        <label for="industrySelect">
+                            <i class="fas fa-industry"></i>
+                            <span>Industry Sector</span>
+                        </label>
+                        <select id="industrySelect" class="modern-select">
+                            <option value="">Loading sectors...</option>
+                        </select>
+                    </div>
+                    
+                    <button id="updateBtn" class="modern-btn primary">
+                        <i class="fas fa-sync-alt"></i>
+                        <span>Analyze Journey</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="chart-section">
+            <div class="chart-card">
+                <div class="chart-header">
+                    <h3>
+                        <i class="fas fa-route"></i>
+                        Quadrant Journey Visualization
+                    </h3>
+                    <div class="chart-info">
+                        <div class="info-item">
+                            <span class="info-label">X-Axis:</span>
+                            <span class="info-value">Relative Strength (0-200, 100=Baseline)</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Y-Axis:</span>
+                            <span class="info-value">Momentum (-50% to +50%)</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="chart-container">
+                    <canvas id="journeyChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <div class="quadrant-guide">
+            <div class="guide-header">
+                <h3>
+                    <i class="fas fa-compass"></i>
+                    Investment Quadrant Guide
+                </h3>
+                <p>Understanding the four quadrants of momentum vs relative strength</p>
+            </div>
+            <div class="quadrant-grid">
+                <div class="quadrant-card leaders">
+                    <div class="quadrant-header">
+                        <div class="quadrant-icon">
+                            <i class="fas fa-crown"></i>
+                        </div>
+                        <div class="quadrant-title">
+                            <h4>Leaders</h4>
+                            <span class="quadrant-position">Top-Right</span>
+                        </div>
+                    </div>
+                    <div class="quadrant-characteristics">
+                        <div class="characteristic">
+                            <i class="fas fa-chart-line text-green"></i>
+                            <span>Buy and hold</span>
+                        </div>
+                    </div>
+                    <div class="quadrant-strategy">
+                        <i class="fas fa-lightbulb"></i>
+                        <span>Prime investment candidates with strong momentum and outperformance</span>
+                    </div>
+                </div>
+
+                <div class="quadrant-card improving">
+                    <div class="quadrant-header">
+                        <div class="quadrant-icon">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                        <div class="quadrant-title">
+                            <h4>Improving</h4>
+                            <span class="quadrant-position">Top-Left</span>
+                        </div>
+                    </div>
+                    <div class="quadrant-characteristics">
+                        <div class="characteristic">
+                            <i class="fas fa-chart-line text-blue"></i>
+                            <span>Potential turnaround</span>
+                        </div>
+                    </div>
+                    <div class="quadrant-strategy">
+                        <i class="fas fa-lightbulb"></i>
+                        <span>Watch for potential breakouts as momentum builds</span>
+                    </div>
+                </div>
+
+                <div class="quadrant-card weakening">
+                    <div class="quadrant-header">
+                        <div class="quadrant-icon">
+                            <i class="fas fa-exclamation-triangle"></i>
+                        </div>
+                        <div class="quadrant-title">
+                            <h4>Weakening</h4>
+                            <span class="quadrant-position">Bottom-Right</span>
+                        </div>
+                    </div>
+                    <div class="quadrant-characteristics">
+                        <div class="characteristic">
+                            <i class="fas fa-chart-line text-orange"></i>
+                            <span>Take profits or reduce exposure</span>
+                        </div>
+                    </div>
+                    <div class="quadrant-strategy">
+                        <i class="fas fa-lightbulb"></i>
+                        <span>Consider profit-taking as momentum fades despite strength</span>
+                    </div>
+                </div>
+
+                <div class="quadrant-card laggards">
+                    <div class="quadrant-header">
+                        <div class="quadrant-icon">
+                            <i class="fas fa-times-circle"></i>
+                        </div>
+                        <div class="quadrant-title">
+                            <h4>Laggards</h4>
+                            <span class="quadrant-position">Bottom-Left</span>
+                        </div>
+                    </div>
+                    <div class="quadrant-characteristics">
+                        <div class="characteristic">
+                            <i class="fas fa-chart-line text-red"></i>
+                            <span>Avoid or sell</span>
+                        </div>
+                    </div>
+                    <div class="quadrant-strategy">
+                        <i class="fas fa-lightbulb"></i>
+                        <span>Avoid or consider shorting these underperforming sectors</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="insights-section">
+            <div class="insights-header">
+                <h3>
+                    <i class="fas fa-chart-bar"></i>
+                    Journey Analysis & Insights 
+                </h3>
+                <p>Detailed performance metrics and sector movement analysis</p>
+            </div>
+            <div id="insightsContent" class="insights-container">
+                <div class="empty-state">
+                    <div class="empty-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h4>Select an Industry to Begin Analysis</h4>
+                    <p>Choose a sector from the dropdown above to see detailed journey insights, performance metrics, and quadrant transitions.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="loadingOverlay" class="loading-overlay hidden">
+        <div class="loading-spinner"></div>
+        <p>Loading journey data...</p>
+    </div>
+
+    <script src="../static/js/journey.js"></script>
+</body>
+</html>

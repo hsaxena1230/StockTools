@@ -1,0 +1,23 @@
+Symbol Resolution Summary
+==================================================
+
+Total processed: 10
+Successfully resolved: 0
+Failed to resolve: 10
+Success rate: 0.0%
+
+Resolved Symbols:
+------------------------------
+
+Failed Resolutions:
+------------------------------
+A.K.CAPITAL - No valid symbols found
+A.SARABHAI - No valid symbols found
+AANANDALAK - No valid symbols found
+AANCHALISP - No symbols found in search
+AAREY DRUGS - No valid symbols found
+AARTI DRUGS - No valid symbols found
+AARVEE DENIM - No valid symbols found
+ABAN OFFSHO - No valid symbols found
+ABC INDIA - No valid symbols found
+ABCAPITAL - No valid symbols found

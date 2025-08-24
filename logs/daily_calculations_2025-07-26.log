@@ -1,0 +1,103 @@
+2025-07-26 15:29:33,106 - INFO - 🚀 STARTING DAILY STOCK MARKET CALCULATIONS
+2025-07-26 15:29:33,107 - INFO - Start time: 2025-07-26 15:29:33.106512
+2025-07-26 15:29:33,107 - INFO - ================================================================================
+2025-07-26 15:29:33,107 - INFO - Connecting to database...
+2025-07-26 15:29:33,188 - INFO - ✅ Connected to database
+2025-07-26 15:29:33,188 - INFO - ============================================================
+2025-07-26 15:29:33,188 - INFO - STEP 1: UPDATING STOCK PRICES
+2025-07-26 15:29:33,189 - INFO - ============================================================
+2025-07-26 15:29:33,189 - INFO - Updating stock prices for 2025-07-26
+2025-07-26 15:29:33,275 - INFO - Found 2380 regular stocks and 1 indices
+2025-07-26 15:29:33,275 - INFO - Fetching latest stock prices...
+2025-07-26 15:29:35,267 - ERROR - $3DPLM.BO: possibly delisted; no price data found  (1d 2025-07-21 15:29:35.160911 -> 2025-07-26 15:29:35.160911)
+2025-07-26 15:29:35,374 - ERROR - $VEDLRPS.BO: possibly delisted; no price data found  (1d 2025-07-21 15:29:35.268377 -> 2025-07-26 15:29:35.268377)
+2025-07-26 15:29:35,489 - ERROR - $738REC27.BO: possibly delisted; no price data found  (1d 2025-07-21 15:29:35.376346 -> 2025-07-26 15:29:35.376346)
+2025-07-26 15:29:35,599 - ERROR - $793REC22.BO: possibly delisted; no price data found  (1d 2025-07-21 15:29:35.490401 -> 2025-07-26 15:29:35.490401)
+2025-07-26 15:29:36,718 - ERROR - $843PFC23.BO: possibly delisted; no price data found  (1d 2025-07-21 15:29:36.604210 -> 2025-07-26 15:29:36.604210)
+2025-07-26 15:29:36,846 - ERROR - $892PFC33.BO: possibly delisted; no price data found  (1d 2025-07-21 15:29:36.719916 -> 2025-07-26 15:29:36.719916)
+2025-07-26 15:29:39,915 - ERROR - $OCCL.NS: possibly delisted; no price data found  (1d 2025-07-21 15:29:39.799733 -> 2025-07-26 15:29:39.799733)
+2025-07-26 15:30:00,379 - ERROR - $AJEL.BO: possibly delisted; no price data found  (1d 2025-07-21 15:30:00.272486 -> 2025-07-26 15:30:00.272486)
+2025-07-26 15:31:58,100 - ERROR - $0ECL20.BO: possibly delisted; no price data found  (1d 2025-07-21 15:31:57.982294 -> 2025-07-26 15:31:57.982294)
+2025-07-26 15:31:58,595 - ERROR - $10EHFL26.BO: possibly delisted; no price data found  (1d 2025-07-21 15:31:58.465559 -> 2025-07-26 15:31:58.465559)
+2025-07-26 15:33:22,109 - ERROR - $0IFCI19B.BO: possibly delisted; no price data found  (1d 2025-07-21 15:33:21.994600 -> 2025-07-26 15:33:21.994600)
+2025-07-26 15:33:42,593 - ERROR - $IWEL.NS: possibly delisted; no price data found  (1d 2025-07-21 15:33:42.463977 -> 2025-07-26 15:33:42.463977)
+2025-07-26 15:33:51,582 - ERROR - $JSWNCPS.BO: possibly delisted; no price data found  (1d 2025-07-21 15:33:51.472762 -> 2025-07-26 15:33:51.472762)
+2025-07-26 15:33:59,303 - ERROR - $JSLHISAR.BO: possibly delisted; no price data found  (1d 2025-07-21 15:33:59.188746 -> 2025-07-26 15:33:59.188746)
+2025-07-26 15:34:08,339 - ERROR - $115KFL22.BO: possibly delisted; no price data found  (1d 2025-07-21 15:34:07.820906 -> 2025-07-26 15:34:07.820906)
+2025-07-26 15:34:08,463 - ERROR - $975KFL20.BO: possibly delisted; no price data found  (1d 2025-07-21 15:34:08.342171 -> 2025-07-26 15:34:08.342171)
+2025-07-26 15:34:09,578 - ERROR - $975KFL18.BO: possibly delisted; no price data found  (1d 2025-07-21 15:34:09.466222 -> 2025-07-26 15:34:09.466222)
+2025-07-26 15:34:09,779 - ERROR - $0KFL22H.BO: possibly delisted; no price data found  (1d 2025-07-21 15:34:09.580021 -> 2025-07-26 15:34:09.580021)
+2025-07-26 15:34:09,895 - ERROR - $0KFL18D.BO: possibly delisted; no price data found  (1d 2025-07-21 15:34:09.780723 -> 2025-07-26 15:34:09.780723)
+2025-07-26 15:34:10,893 - ERROR - $900KPL29.BO: possibly delisted; no price data found  (1d 2025-07-21 15:34:10.782634 -> 2025-07-26 15:34:10.782634)
+2025-07-26 15:34:12,087 - ERROR - $900KPL34.BO: possibly delisted; no price data found  (1d 2025-07-21 15:34:11.900818 -> 2025-07-26 15:34:11.900818)
+2025-07-26 15:34:46,773 - ERROR - $10MFL18E.BO: possibly delisted; no price data found  (1d 2025-07-21 15:34:46.658974 -> 2025-07-26 15:34:46.658974)
+2025-07-26 15:34:47,897 - ERROR - $850MFL19.BO: possibly delisted; no price data found  (1d 2025-07-21 15:34:47.781926 -> 2025-07-26 15:34:47.781926)
+2025-07-26 15:34:48,026 - ERROR - $925MFL19.BO: possibly delisted; no price data found  (1d 2025-07-21 15:34:47.898884 -> 2025-07-26 15:34:47.898884)
+2025-07-26 15:34:48,145 - ERROR - $950MFL18.BO: possibly delisted; no price data found  (1d 2025-07-21 15:34:48.030074 -> 2025-07-26 15:34:48.030074)
+2025-07-26 15:34:48,266 - ERROR - $0MFL2018.BO: possibly delisted; no price data found  (1d 2025-07-21 15:34:48.146294 -> 2025-07-26 15:34:48.146294)
+2025-07-26 15:34:48,377 - ERROR - $0MFL20.BO: possibly delisted; no price data found  (1d 2025-07-21 15:34:48.267266 -> 2025-07-26 15:34:48.267266)
+2025-07-26 15:34:48,490 - ERROR - $0MFL21.BO: possibly delisted; no price data found  (1d 2025-07-21 15:34:48.378927 -> 2025-07-26 15:34:48.378927)
+2025-07-26 15:34:48,945 - ERROR - $9MMFSL26.BO: possibly delisted; no price data found  (1d 2025-07-21 15:34:48.766154 -> 2025-07-26 15:34:48.766154)
+2025-07-26 15:34:53,422 - ERROR - $0MFL20L.BO: possibly delisted; no price data found  (1d 2025-07-21 15:34:53.318382 -> 2025-07-26 15:34:53.318382)
+2025-07-26 15:35:11,653 - ERROR - $MAXVIL.BO: possibly delisted; no price data found  (1d 2025-07-21 15:35:11.542260 -> 2025-07-26 15:35:11.542260)
+2025-07-26 15:35:26,754 - ERROR - $76NHAI31.BO: possibly delisted; no price data found  (1d 2025-07-21 15:35:26.637270 -> 2025-07-26 15:35:26.637270)
+2025-07-26 15:36:00,239 - ERROR - $736PFC25.BO: possibly delisted; no price data found  (1d 2025-07-21 15:36:00.130554 -> 2025-07-26 15:36:00.130554)
+2025-07-26 15:36:00,345 - ERROR - $843PFC22.BO: possibly delisted; no price data found  (1d 2025-07-21 15:36:00.241767 -> 2025-07-26 15:36:00.241767)
+2025-07-26 15:36:00,495 - ERROR - $872PFC22.BO: possibly delisted; no price data found  (1d 2025-07-21 15:36:00.347161 -> 2025-07-26 15:36:00.347161)
+2025-07-26 15:36:00,602 - ERROR - $PFCBS1.BO: possibly delisted; no price data found  (1d 2025-07-21 15:36:00.497398 -> 2025-07-26 15:36:00.497398)
+2025-07-26 15:36:00,702 - ERROR - $PFCBS2.BO: possibly delisted; no price data found  (1d 2025-07-21 15:36:00.604023 -> 2025-07-26 15:36:00.604023)
+2025-07-26 15:36:00,831 - ERROR - $PFCBT1S4.BO: possibly delisted; no price data found  (1d 2025-07-21 15:36:00.703318 -> 2025-07-26 15:36:00.703318)
+2025-07-26 15:36:35,113 - ERROR - $RCIIND.BO: possibly delisted; no price data found  (1d 2025-07-21 15:36:34.998465 -> 2025-07-26 15:36:34.998465)
+2025-07-26 15:36:35,391 - ERROR - $714REC25.BO: possibly delisted; no price data found  (1d 2025-07-21 15:36:35.285480 -> 2025-07-26 15:36:35.285480)
+2025-07-26 15:36:36,505 - ERROR - $886REC34.BO: possibly delisted; no price data found  (1d 2025-07-21 15:36:36.393873 -> 2025-07-26 15:36:36.393873)
+2025-07-26 15:36:36,754 - ERROR - $RFL18H.BO: possibly delisted; no price data found  (1d 2025-07-21 15:36:36.644033 -> 2025-07-26 15:36:36.644033)
+2025-07-26 15:37:12,040 - ERROR - $0SCUF19.BO: possibly delisted; no price data found  (1d 2025-07-21 15:37:11.875906 -> 2025-07-26 15:37:11.875906)
+2025-07-26 15:37:13,314 - ERROR - $10SIFL21.BO: possibly delisted; no price data found  (1d 2025-07-21 15:37:13.127352 -> 2025-07-26 15:37:13.127352)
+2025-07-26 15:37:13,569 - ERROR - $0SIFL22.BO: possibly delisted; no price data found  (1d 2025-07-21 15:37:13.315755 -> 2025-07-26 15:37:13.315755)
+2025-07-26 15:37:17,296 - ERROR - $SGB2016I.BO: possibly delisted; no price data found  (1d 2025-07-21 15:37:16.871138 -> 2025-07-26 15:37:16.871138)
+2025-07-26 15:37:18,424 - ERROR - $SGBOCT25.BO: possibly delisted; no price data found  (1d 2025-07-21 15:37:18.302747 -> 2025-07-26 15:37:18.302747)
+2025-07-26 15:37:18,554 - ERROR - $SGBMAY25.BO: possibly delisted; no price data found  (1d 2025-07-21 15:37:18.426584 -> 2025-07-26 15:37:18.426584)
+2025-07-26 15:37:18,747 - ERROR - $SGBAUG24.BO: possibly delisted; no price data found  (1d 2025-07-21 15:37:18.555312 -> 2025-07-26 15:37:18.555312)
+2025-07-26 15:37:19,275 - ERROR - $0SREI19H.BO: possibly delisted; no price data found  (1d 2025-07-21 15:37:19.160452 -> 2025-07-26 15:37:19.160452)
+2025-07-26 15:37:22,043 - ERROR - $SRSREAL.BO: possibly delisted; no timezone found
+2025-07-26 15:37:22,892 - ERROR - $10STFC19.BO: possibly delisted; no price data found  (1d 2025-07-21 15:37:22.762216 -> 2025-07-26 15:37:22.762216)
+2025-07-26 15:38:53,944 - ERROR - $TINPLATE.BO: possibly delisted; no price data found  (1d 2025-07-21 15:38:53.738997 -> 2025-07-26 15:38:53.738997)
+2025-07-26 15:39:13,734 - ERROR - $UMANGDAIRY.NS: possibly delisted; no price data found  (1d 2025-07-21 15:39:13.623198 -> 2025-07-26 15:39:13.623198)
+2025-07-26 15:39:54,633 - ERROR - $ZEENCPS.BO: possibly delisted; no price data found  (1d 2025-07-21 15:39:54.528764 -> 2025-07-26 15:39:54.528764)
+2025-07-26 15:40:01,205 - INFO - ✅ Stock prices updated: 0 stocks, 1/1 indices
+2025-07-26 15:40:01,209 - INFO - ============================================================
+2025-07-26 15:40:01,209 - INFO - STEP 2: CALCULATING EQUIWEIGHTED INDICES
+2025-07-26 15:40:01,209 - INFO - ============================================================
+2025-07-26 15:40:01,213 - INFO - Calculating equiweighted indices for recent period
+2025-07-26 15:40:13,047 - INFO - ✅ Equiweighted indices calculated: 0 industries, 0 records
+2025-07-26 15:40:13,049 - INFO - ============================================================
+2025-07-26 15:40:13,049 - INFO - STEP 3: CALCULATING MOMENTUM
+2025-07-26 15:40:13,049 - INFO - ============================================================
+2025-07-26 15:40:13,049 - INFO - Calculating momentum for 2025-07-26
+2025-07-26 15:41:39,886 - INFO - ✅ Momentum calculated: 2432 total records
+2025-07-26 15:41:39,887 - INFO -    - Stocks: 2327
+2025-07-26 15:41:39,888 - INFO -    - Industries: 104
+2025-07-26 15:41:39,888 - INFO -    - Market indices: 1
+2025-07-26 15:41:39,888 - INFO - ============================================================
+2025-07-26 15:41:39,888 - INFO - STEP 4: CALCULATING RELATIVE STRENGTH
+2025-07-26 15:41:39,888 - INFO - ============================================================
+2025-07-26 15:41:39,889 - INFO - Calculating relative strength for 2025-07-26
+2025-07-26 15:43:19,302 - INFO - ✅ Relative strength calculated: 2036 total records
+2025-07-26 15:43:19,305 - INFO -    - Stocks: 1932
+2025-07-26 15:43:19,305 - INFO -    - Industries: 104
+2025-07-26 15:43:19,305 - INFO - Database connection closed
+2025-07-26 15:43:19,306 - INFO - ================================================================================
+2025-07-26 15:43:19,306 - INFO - 📊 DAILY CALCULATIONS SUMMARY
+2025-07-26 15:43:19,306 - INFO - ================================================================================
+2025-07-26 15:43:19,306 - INFO - Start time: 2025-07-26 15:29:33.106512
+2025-07-26 15:43:19,306 - INFO - End time: 2025-07-26 15:43:19.306221
+2025-07-26 15:43:19,306 - INFO - Duration: 0:13:46.199709
+2025-07-26 15:43:19,306 - INFO - 
+2025-07-26 15:43:19,307 - INFO - Step Results:
+2025-07-26 15:43:19,307 - INFO -   1. Stock Prices: ✅ SUCCESS
+2025-07-26 15:43:19,307 - INFO -   2. Equiweighted Indices: ✅ SUCCESS
+2025-07-26 15:43:19,307 - INFO -   3. Momentum: ✅ SUCCESS
+2025-07-26 15:43:19,307 - INFO -   4. Relative Strength: ✅ SUCCESS
+2025-07-26 15:43:19,307 - INFO - 
+2025-07-26 15:43:19,307 - INFO - 🎉 ALL DAILY CALCULATIONS COMPLETED SUCCESSFULLY!
+2025-07-26 15:43:19,307 - INFO - ================================================================================

@@ -1,0 +1,67 @@
+# Complete Daily Stock Market Calculations Cron Schedule
+# Updated to include: Stock Prices + Equiweighted Indices + Momentum + Relative Strength
+
+# MAIN CRON JOB (Recommended - automatically installed by setup_cron.sh)
+# Runs comprehensive daily calculations Monday-Friday at 6:30 PM IST
+30 18 * * 1-5 cd /Users/harshitsaxena/Desktop/StockTools && /usr/bin/python3 daily_calculations.py >> logs/cron.log 2>&1
+
+# MAINTENANCE CRON JOB (automatically installed by setup_cron.sh)
+# Cleans old log files every Sunday at 2:00 AM IST
+0 2 * * 0 cd /Users/harshitsaxena/Desktop/StockTools && find logs/ -name '*.log' -mtime +30 -delete && echo "$(date): Cleaned old log files" >> logs/maintenance.log 2>&1
+
+# ALTERNATIVE SCHEDULES (if you want different timing)
+
+# Option 1: Earlier execution at 4:30 PM IST (1 hour after market close)
+30 16 * * 1-5 cd /Users/harshitsaxena/Desktop/StockTools && /usr/bin/python3 daily_calculations.py >> logs/cron.log 2>&1
+
+# Option 2: Later execution at 8:00 PM IST (more conservative timing)
+0 20 * * 1-5 cd /Users/harshitsaxena/Desktop/StockTools && /usr/bin/python3 daily_calculations.py >> logs/cron.log 2>&1
+
+# Option 3: Very safe timing at 9:00 PM IST (ensures all data is available)
+0 21 * * 1-5 cd /Users/harshitsaxena/Desktop/StockTools && /usr/bin/python3 daily_calculations.py >> logs/cron.log 2>&1
+
+# INSTALLATION METHODS:
+
+# Method 1: Use the automated setup script (RECOMMENDED)
+# ./setup_cron.sh
+
+# Method 2: Manual installation
+# 1. Open crontab editor: crontab -e
+# 2. Add the main cron job line (and optionally the maintenance job)
+# 3. Save and exit
+
+# MONITORING COMMANDS:
+# - View current cron jobs: crontab -l
+# - View daily execution logs: tail -f logs/daily_calculations_$(date +%Y-%m-%d).log
+# - View cron system logs: tail -f logs/cron.log
+# - View maintenance logs: tail -f logs/maintenance.log
+
+# MANAGEMENT COMMANDS:
+# - Remove all cron jobs: crontab -r
+# - Remove only these jobs: crontab -l | grep -v 'daily_calculations.py' | grep -v 'find logs/' | crontab -
+# - Test manually: python3 daily_calculations.py
+# - Test interactively: python3 test_daily_calculations.py --interactive
+
+# WHAT RUNS DAILY:
+# 1. 📈 Stock Price Updates - Fetches latest closing prices for all stocks and indices
+# 2. ⚖️ Equiweighted Indices - Calculates industry-wise equiweighted index values
+# 3. 🚀 Momentum Calculation - Computes 30d, 90d, 180d momentum for all entities
+# 4. 📊 Relative Strength - Calculates relative strength vs benchmark for all entities
+
+# TIMING CONSIDERATIONS:
+# - Indian stock market hours: 9:15 AM - 3:30 PM IST
+# - Data providers may need 30-60 minutes to finalize closing prices
+# - 6:30 PM IST (18:30) provides safe buffer for data availability
+# - Weekend jobs are skipped (1-5 = Monday to Friday only)
+
+# LOG FILE MANAGEMENT:
+# - Daily logs: logs/daily_calculations_YYYY-MM-DD.log (one per day)
+# - Cron execution log: logs/cron.log (consolidated cron output)
+# - Maintenance log: logs/maintenance.log (cleanup activities)
+# - Old logs are automatically deleted after 30 days
+
+# TROUBLESHOOTING:
+# - If jobs fail, check logs for detailed error messages
+# - Ensure database connection is working
+# - Verify Python path and script permissions
+# - Test manually before relying on cron execution

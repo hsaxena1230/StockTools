@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Journey Test</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        #journeyChart { max-width: 800px; max-height: 400px; }
+        .industry-select { margin: 20px 0; }
+        button { background: #3498db; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <h1>Industry Quadrant Journey Test</h1>
+    <div class="industry-select">
+        <select id="industrySelect" multiple size="5">
+            <option value="Agricultural Inputs" selected>Agricultural Inputs</option>
+            <option value="Auto Parts" selected>Auto Parts</option>
+            <option value="Steel" selected>Steel</option>
+            <option value="Information Technology Services">Information Technology Services</option>
+            <option value="Pharmaceutical">Pharmaceutical</option>
+        </select>
+        <button onclick="updateChart()">Update Chart</button>
+    </div>
+    <canvas id="journeyChart"></canvas>
+    
+    <div id="insights" style="margin-top: 20px;"></div>
+
+    <script>
+        let chart = null;
+        
+        // Mock data generator (same as Python version)
+        function getQuadrant(momentum, rs) {
+            if (momentum >= 0 && rs >= 100) return 'leaders';
+            else if (momentum >= 0 && rs < 100) return 'improving';
+            else if (momentum < 0 && rs >= 100) return 'weakening';
+            else return 'laggards';
+        }
+        
+        function generateJourneyData(industries, days = 30) {
+            const mockData = {
+                'Agricultural Inputs': {momentum: 9.3, rs: 113.8, price: 1159.13},
+                'Auto Parts': {momentum: 6.3, rs: 105.0, price: 1028.01},
+                'Steel': {momentum: -2.1, rs: 95.5, price: 850.45},
+                'Information Technology Services': {momentum: 12.5, rs: 108.2, price: 1245.67},
+                'Pharmaceutical': {momentum: 4.8, rs: 102.3, price: 980.33}
+            };
+            
+            const colors = {
+                'Agricultural Inputs': '#2ecc71',
+                'Auto Parts': '#3498db', 
+                'Steel': '#e74c3c',
+                'Information Technology Services': '#9b59b6',
+                'Pharmaceutical': '#f39c12'
+            };
+            
+            const quadrantColors = {
+                'leaders': '#2ecc71',
+                'improving': '#3498db',
+                'weakening': '#f39c12',
+                'laggards': '#e74c3c'
+            };
+            
+            return industries.map(industry => {
+                if (!mockData[industry]) return null;
+                
+                const current = mockData[industry];
+                const dataPoints = [];
+                
+                // Simple deterministic "random" based on industry name
+                let seed = industry.split('').reduce((a, b) => a + b.charCodeAt(0), 0);
+                function random() {
+                    seed = (seed * 9301 + 49297) % 233280;
+                    return seed / 233280;
+                }
+                
+                const numPoints = Math.min(days, 30);
+                for (let i = 0; i < numPoints; i++) {
+                    const daysBack = days - (i * days / numPoints);
+                    const date = new Date();
+                    date.setDate(date.getDate() - Math.floor(daysBack));
+                    
+                    // Add variation
+                    const momentumVar = (random() - 0.5) * 1.6 * (i + 1);
+                    const rsVar = (random() - 0.5) * 1.2 * (i + 1);
+                    
+                    const momentum = Math.max(-50, Math.min(50, current.momentum + momentumVar));
+                    const rs = Math.max(50, Math.min(150, current.rs + rsVar));
+                    const quadrant = getQuadrant(momentum, rs);
+                    
+                    dataPoints.push({
+                        x: rs,
+                        y: momentum,
+                        date: date.toISOString().split('T')[0],
+                        quadrant: quadrant
+                    });
+                }
+                
+                // Sort by date
+                dataPoints.sort((a, b) => new Date(a.date) - new Date(b.date));
+                
+                return {
+                    label: industry,
+                    data: dataPoints,
+                    borderColor: colors[industry] || '#333',
+                    backgroundColor: colors[industry] + '20' || '#33320',
+                    pointBackgroundColor: dataPoints.map(p => quadrantColors[p.quadrant]),
+                    pointBorderColor: colors[industry] || '#333',
+                    pointRadius: 4,
+                    borderWidth: 2,
+                    tension: 0.3,
+                    showLine: true
+                };
+            }).filter(d => d !== null);
+        }
+        
+        function updateChart() {
+            const select = document.getElementById('industrySelect');
+            const selectedIndustries = Array.from(select.selectedOptions).map(opt => opt.value);
+            
+            if (selectedIndustries.length === 0) {
+                alert('Please select at least one industry');
+                return;
+            }
+            
+            const ctx = document.getElementById('journeyChart').getContext('2d');
+            
+            if (chart) chart.destroy();
+            
+            const datasets = generateJourneyData(selectedIndustries);
+            
+            chart = new Chart(ctx, {
+                type: 'scatter',
+                data: { datasets },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: 'Industry Quadrant Journey (Last 30 Days)',
+                            font: { size: 16, weight: 'bold' }
+                        },
+                        legend: { display: true, position: 'top' },
+                        tooltip: {
+                            callbacks: {
+                                label: (context) => {
+                                    const point = context.raw;
+                                    return [
+                                        context.dataset.label,
+                                        `Date: ${point.date}`,
+                                        `Momentum: ${point.y.toFixed(1)}%`,
+                                        `Relative Strength: ${point.x.toFixed(1)}`,
+                                        `Quadrant: ${point.quadrant}`
+                                    ];
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        x: {
+                            title: { display: true, text: 'Relative Strength' },
+                            grid: { color: 'rgba(0,0,0,0.1)' }
+                        },
+                        y: {
+                            title: { display: true, text: 'Momentum (%)' },
+                            grid: { color: 'rgba(0,0,0,0.1)' },
+                            ticks: { callback: value => value + '%' }
+                        }
+                    }
+                }
+            });
+            
+            // Add reference lines
+            addReferenceLines();
+            
+            // Update insights
+            updateInsights(selectedIndustries, datasets);
+        }
+        
+        function addReferenceLines() {
+            Chart.register({
+                id: 'referenceLines',
+                afterDraw: (chart) => {
+                    const { ctx, chartArea, scales } = chart;
+                    ctx.save();
+                    ctx.strokeStyle = 'rgba(0, 0, 0, 0.3)';
+                    ctx.lineWidth = 2;
+                    ctx.setLineDash([5, 5]);
+                    
+                    // Vertical line at RS = 100
+                    const x100 = scales.x.getPixelForValue(100);
+                    ctx.beginPath();
+                    ctx.moveTo(x100, chartArea.top);
+                    ctx.lineTo(x100, chartArea.bottom);
+                    ctx.stroke();
+                    
+                    // Horizontal line at Momentum = 0
+                    const y0 = scales.y.getPixelForValue(0);
+                    ctx.beginPath();
+                    ctx.moveTo(chartArea.left, y0);
+                    ctx.lineTo(chartArea.right, y0);
+                    ctx.stroke();
+                    
+                    ctx.restore();
+                }
+            });
+        }
+        
+        function updateInsights(industries, datasets) {
+            const insightsDiv = document.getElementById('insights');
+            let html = '<h3>Journey Insights</h3>';
+            
+            datasets.forEach(dataset => {
+                const points = dataset.data;
+                const start = points[0];
+                const end = points[points.length - 1];
+                
+                // Count quadrant changes
+                let transitions = 0;
+                for (let i = 1; i < points.length; i++) {
+                    if (points[i].quadrant !== points[i-1].quadrant) {
+                        transitions++;
+                    }
+                }
+                
+                html += `
+                    <div style="border: 1px solid #ddd; padding: 15px; margin: 10px 0; border-radius: 5px;">
+                        <h4>${dataset.label}</h4>
+                        <p><strong>Journey:</strong> ${start.quadrant} → ${end.quadrant}</p>
+                        <p><strong>Momentum Change:</strong> ${(end.y - start.y).toFixed(1)}%</p>
+                        <p><strong>RS Change:</strong> ${(end.x - start.x).toFixed(1)}</p>
+                        <p><strong>Quadrant Transitions:</strong> ${transitions}</p>
+                    </div>
+                `;
+            });
+            
+            insightsDiv.innerHTML = html;
+        }
+        
+        // Initialize chart on page load
+        window.onload = () => updateChart();
+    </script>
+</body>
+</html>

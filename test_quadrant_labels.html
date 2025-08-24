@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quadrant Labels Test</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        #testChart {
+            max-height: 400px;
+        }
+        .info {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #e8f4fd;
+            border-radius: 5px;
+            border-left: 4px solid #3498db;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Industry Quadrant Journey Analysis - Enhanced with Labels</h1>
+        <p>This test demonstrates the new quadrant labels added to the chart for better visualization.</p>
+        
+        <canvas id="testChart"></canvas>
+        
+        <div class="info">
+            <h3>✅ Enhancements Added:</h3>
+            <ul>
+                <li><strong>Quadrant Background Colors:</strong> Subtle colored backgrounds for each quadrant</li>
+                <li><strong>Quadrant Labels:</strong> Clear labels (LEADERS, IMPROVING, WEAKENING, LAGGARDS)</li>
+                <li><strong>Descriptive Text:</strong> Brief explanation of each quadrant's characteristics</li>
+                <li><strong>Color Coding:</strong> Green (Leaders), Blue (Improving), Orange (Weakening), Red (Laggards)</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        // Sample data for demonstration
+        const sampleData = [
+            { x: 120, y: 5, label: 'Tech Sector Start', quadrant: 'leaders' },
+            { x: 115, y: 3, label: 'Tech Sector Mid', quadrant: 'leaders' },
+            { x: 110, y: 1, label: 'Tech Sector End', quadrant: 'leaders' },
+            { x: 95, y: 4, label: 'Healthcare Start', quadrant: 'improving' },
+            { x: 98, y: 2, label: 'Healthcare Mid', quadrant: 'improving' },
+            { x: 102, y: -1, label: 'Healthcare End', quadrant: 'weakening' },
+            { x: 85, y: -2, label: 'Energy Start', quadrant: 'laggards' },
+            { x: 88, y: -3, label: 'Energy Mid', quadrant: 'laggards' },
+            { x: 90, y: -1, label: 'Energy End', quadrant: 'laggards' }
+        ];
+
+        const ctx = document.getElementById('testChart').getContext('2d');
+        
+        const chart = new Chart(ctx, {
+            type: 'scatter',
+            data: {
+                datasets: [{
+                    label: 'Sample Journey',
+                    data: sampleData,
+                    borderColor: '#3498db',
+                    backgroundColor: 'rgba(52, 152, 219, 0.1)',
+                    showLine: true,
+                    tension: 0.1,
+                    pointRadius: 6,
+                    pointHoverRadius: 8
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Industry Quadrant Journey with Enhanced Labels',
+                        font: {
+                            size: 16,
+                            weight: 'bold'
+                        }
+                    },
+                    legend: {
+                        display: true
+                    }
+                },
+                scales: {
+                    x: {
+                        type: 'linear',
+                        title: {
+                            display: true,
+                            text: 'Relative Strength',
+                            font: {
+                                size: 14,
+                                weight: 'bold'
+                            }
+                        },
+                        min: 70,
+                        max: 130
+                    },
+                    y: {
+                        type: 'linear',
+                        title: {
+                            display: true,
+                            text: 'Momentum (%)',
+                            font: {
+                                size: 14,
+                                weight: 'bold'
+                            }
+                        },
+                        min: -5,
+                        max: 6
+                    }
+                }
+            },
+            plugins: [{
+                id: 'quadrantLabels',
+                afterDraw: (chart) => {
+                    const { ctx, chartArea, scales } = chart;
+                    
+                    ctx.save();
+                    
+                    // Draw quadrant lines
+                    ctx.strokeStyle = 'rgba(0, 0, 0, 0.3)';
+                    ctx.lineWidth = 2;
+                    ctx.setLineDash([5, 5]);
+                    
+                    // RS = 100 line
+                    const x100 = scales.x.getPixelForValue(100);
+                    ctx.beginPath();
+                    ctx.moveTo(x100, chartArea.top);
+                    ctx.lineTo(x100, chartArea.bottom);
+                    ctx.stroke();
+                    
+                    // Momentum = 0 line
+                    const y0 = scales.y.getPixelForValue(0);
+                    ctx.beginPath();
+                    ctx.moveTo(chartArea.left, y0);
+                    ctx.lineTo(chartArea.right, y0);
+                    ctx.stroke();
+                    
+                    ctx.setLineDash([]);
+                    
+                    // Add colored backgrounds with better visibility
+                    ctx.globalAlpha = 0.25;
+                    
+                    // Leaders (top-right)
+                    ctx.fillStyle = '#2ecc71';
+                    ctx.fillRect(x100, chartArea.top, chartArea.right - x100, y0 - chartArea.top);
+                    
+                    // Improving (top-left)
+                    ctx.fillStyle = '#3498db';
+                    ctx.fillRect(chartArea.left, chartArea.top, x100 - chartArea.left, y0 - chartArea.top);
+                    
+                    // Weakening (bottom-right)
+                    ctx.fillStyle = '#f39c12';
+                    ctx.fillRect(x100, y0, chartArea.right - x100, chartArea.bottom - y0);
+                    
+                    // Laggards (bottom-left)
+                    ctx.fillStyle = '#e74c3c';
+                    ctx.fillRect(chartArea.left, y0, x100 - chartArea.left, chartArea.bottom - y0);
+                    
+                    ctx.globalAlpha = 1;
+                    
+                    // Add labels
+                    ctx.font = 'bold 14px Arial';
+                    ctx.textAlign = 'center';
+                    ctx.textBaseline = 'middle';
+                    ctx.shadowColor = 'rgba(255, 255, 255, 0.8)';
+                    ctx.shadowBlur = 3;
+                    
+                    // Calculate centers
+                    const leadersX = x100 + (chartArea.right - x100) / 2;
+                    const leadersY = chartArea.top + (y0 - chartArea.top) / 2;
+                    
+                    const improvingX = chartArea.left + (x100 - chartArea.left) / 2;
+                    const improvingY = chartArea.top + (y0 - chartArea.top) / 2;
+                    
+                    const weakeningX = x100 + (chartArea.right - x100) / 2;
+                    const weakeningY = y0 + (chartArea.bottom - y0) / 2;
+                    
+                    const laggardsX = chartArea.left + (x100 - chartArea.left) / 2;
+                    const laggardsY = y0 + (chartArea.bottom - y0) / 2;
+                    
+                    // Add borders around quadrants for better definition
+                    ctx.lineWidth = 1;
+                    ctx.globalAlpha = 0.4;
+                    ctx.strokeStyle = '#27ae60';
+                    ctx.strokeRect(x100, chartArea.top, chartArea.right - x100, y0 - chartArea.top);
+                    ctx.strokeStyle = '#2980b9';
+                    ctx.strokeRect(chartArea.left, chartArea.top, x100 - chartArea.left, y0 - chartArea.top);
+                    ctx.strokeStyle = '#e67e22';
+                    ctx.strokeRect(x100, y0, chartArea.right - x100, chartArea.bottom - y0);
+                    ctx.strokeStyle = '#c0392b';
+                    ctx.strokeRect(chartArea.left, y0, x100 - chartArea.left, chartArea.bottom - y0);
+                    ctx.globalAlpha = 1;
+                    
+                    // Draw labels with backgrounds for better readability
+                    function drawTextWithBackground(text, x, y, textColor, backgroundColor, font) {
+                        ctx.save();
+                        ctx.font = font;
+                        const metrics = ctx.measureText(text);
+                        const textWidth = metrics.width;
+                        const textHeight = parseInt(font.match(/\d+/)) || 14;
+                        const padding = 6;
+                        
+                        // Background
+                        ctx.fillStyle = backgroundColor;
+                        ctx.globalAlpha = 0.9;
+                        ctx.fillRect(x - textWidth/2 - padding, y - textHeight/2 - padding/2, textWidth + padding*2, textHeight + padding);
+                        
+                        // Border
+                        ctx.globalAlpha = 0.3;
+                        ctx.strokeStyle = textColor;
+                        ctx.lineWidth = 1;
+                        ctx.strokeRect(x - textWidth/2 - padding, y - textHeight/2 - padding/2, textWidth + padding*2, textHeight + padding);
+                        
+                        // Text
+                        ctx.globalAlpha = 1;
+                        ctx.fillStyle = textColor;
+                        ctx.fillText(text, x, y);
+                        ctx.restore();
+                    }
+                    
+                    // Leaders labels
+                    drawTextWithBackground('LEADERS', leadersX, leadersY - 15, '#27ae60', '#ffffff', 'bold 16px Arial');
+                    drawTextWithBackground('Strong RS • Rising Momentum', leadersX, leadersY + 5, '#2c3e50', '#ffffff', '12px Arial');
+                    
+                    // Improving labels
+                    drawTextWithBackground('IMPROVING', improvingX, improvingY - 15, '#2980b9', '#ffffff', 'bold 16px Arial');
+                    drawTextWithBackground('Weak RS • Rising Momentum', improvingX, improvingY + 5, '#2c3e50', '#ffffff', '12px Arial');
+                    
+                    // Weakening labels
+                    drawTextWithBackground('WEAKENING', weakeningX, weakeningY - 15, '#e67e22', '#ffffff', 'bold 16px Arial');
+                    drawTextWithBackground('Strong RS • Falling Momentum', weakeningX, weakeningY + 5, '#2c3e50', '#ffffff', '12px Arial');
+                    
+                    // Laggards labels
+                    drawTextWithBackground('LAGGARDS', laggardsX, laggardsY - 15, '#c0392b', '#ffffff', 'bold 16px Arial');
+                    drawTextWithBackground('Weak RS • Falling Momentum', laggardsX, laggardsY + 5, '#2c3e50', '#ffffff', '12px Arial');
+                    
+                    ctx.restore();
+                }
+            }]
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+to load NSE stocks - python load_nse_stocks.py
+
+TO load BSE stocks - python main.py
+
+
+  First-time setup (fetch 10 years of data):
+  python fetch_historical_prices.py
+
+  Daily updates (manual):
+  python update_daily_prices.py
+
+  Automated daily updates:
+  ./setup_cron.sh
+
+
+  Fetch Historical Nifty 500 Data:
+
+  python fetch_nifty_500_data.py
+
+
+   python calculate_momentum.py --action calculate
+
+
+     Complete Data Population Commands:
+
+  Step 1: Fetch Historical Stock Prices (This is the critical missing piece)
+
+  python3 fetch_historical_prices.py
+
+  Step 2: Create Industry Indices (if not already done)
+
+  python3 create_indices.py
+
+  Step 3: Calculate Historical Momentum (180 days)
+
+  echo "180" | python3 calculate_momentum.py --action historical
+
+  Step 4: Calculate Historical Relative Strength
+
+  # Check if this script has historical option
+  python3 calculate_relative_strength.py --action historical
+  # OR if it doesn't support historical action:
+  python3 calculate_relative_strength.py

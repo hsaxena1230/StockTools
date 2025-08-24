@@ -1,0 +1,302 @@
+[
+  {
+    "sc_code": "530499",
+    "sc_name": "A.K.CAPITAL",
+    "status": "failed",
+    "reason": "No valid symbols found",
+    "candidates": [
+      {
+        "symbol": "AKCAPIT.BO",
+        "name": "A. K. Capital Services Limited",
+        "exchange": "BSE",
+        "sector": "Financial Services",
+        "industry": "Capital Markets",
+        "market": "",
+        "similarity_score": 71,
+        "is_valid": false,
+        "verification_data": {
+          "reason": "Verification error: 429 Client Error: Too Many Requests for url: https://query2.finance.yahoo.com/v10/finance/quoteSummary/AKCAPIT.BO?modules=summaryProfile%2CfinancialData%2CquoteType%2CdefaultKeyStatistics%2CassetProfile%2CsummaryDetail&ssl=true"
+        }
+      }
+    ]
+  },
+  {
+    "sc_code": "500009",
+    "sc_name": "A.SARABHAI",
+    "status": "failed",
+    "reason": "No valid symbols found",
+    "candidates": [
+      {
+        "symbol": "AMBALALSA.BO",
+        "name": "Ambalal Sarabhai Enterprises Limited",
+        "exchange": "BSE",
+        "sector": "Healthcare",
+        "industry": "Drug Manufacturers\u2014Specialty & Generic",
+        "market": "",
+        "similarity_score": 53,
+        "is_valid": false,
+        "verification_data": {
+          "reason": "Verification error: 429 Client Error: Too Many Requests for url: https://query2.finance.yahoo.com/v10/finance/quoteSummary/AMBALALSA.BO?modules=summaryProfile%2CfinancialData%2CquoteType%2CdefaultKeyStatistics%2CassetProfile%2CsummaryDetail&ssl=true"
+        }
+      }
+    ]
+  },
+  {
+    "sc_code": "539096",
+    "sc_name": "AANANDALAK",
+    "status": "failed",
+    "reason": "No valid symbols found",
+    "candidates": [
+      {
+        "symbol": "AANANDALAK.BO",
+        "name": "Aananda Lakshmi Spinning Mills Limited",
+        "exchange": "BSE",
+        "sector": "Consumer Cyclical",
+        "industry": "Textile Manufacturing",
+        "market": "",
+        "similarity_score": 50,
+        "is_valid": false,
+        "verification_data": {
+          "reason": "Verification error: 429 Client Error: Too Many Requests for url: https://query2.finance.yahoo.com/v10/finance/quoteSummary/AANANDALAK.BO?modules=summaryProfile%2CfinancialData%2CquoteType%2CdefaultKeyStatistics%2CassetProfile%2CsummaryDetail&ssl=true"
+        }
+      }
+    ]
+  },
+  {
+    "sc_code": "538812",
+    "sc_name": "AANCHALISP",
+    "status": "failed",
+    "reason": "No symbols found in search",
+    "candidates": []
+  },
+  {
+    "sc_code": "524412",
+    "sc_name": "AAREY DRUGS",
+    "status": "failed",
+    "reason": "No valid symbols found",
+    "candidates": [
+      {
+        "symbol": "AAREYDRUGS.BO",
+        "name": "AAREY DRUGS & PHARMACEUTICALS",
+        "exchange": "BSE",
+        "sector": "Healthcare",
+        "industry": "Drug Manufacturers\u2014Specialty & Generic",
+        "market": "",
+        "similarity_score": 58,
+        "is_valid": false,
+        "verification_data": {
+          "reason": "Verification error: 429 Client Error: Too Many Requests for url: https://query2.finance.yahoo.com/v10/finance/quoteSummary/AAREYDRUGS.BO?modules=summaryProfile%2CfinancialData%2CquoteType%2CdefaultKeyStatistics%2CassetProfile%2CsummaryDetail&ssl=true"
+        }
+      },
+      {
+        "symbol": "AAREYDRUGS.NS",
+        "name": "Aarey Drugs & Pharmaceuticals Limited",
+        "exchange": "NSI",
+        "sector": "Healthcare",
+        "industry": "Drug Manufacturers\u2014Specialty & Generic",
+        "market": "",
+        "similarity_score": 58,
+        "is_valid": false,
+        "verification_data": {
+          "reason": "Verification error: 429 Client Error: Too Many Requests for url: https://query2.finance.yahoo.com/v10/finance/quoteSummary/AAREYDRUGS.NS?modules=summaryProfile%2CfinancialData%2CquoteType%2CdefaultKeyStatistics%2CassetProfile%2CsummaryDetail&ssl=true"
+        }
+      }
+    ]
+  },
+  {
+    "sc_code": "524348",
+    "sc_name": "AARTI DRUGS",
+    "status": "failed",
+    "reason": "No valid symbols found",
+    "candidates": [
+      {
+        "symbol": "AARTIDRUGS.NS",
+        "name": "Aarti Drugs Limited",
+        "exchange": "NSI",
+        "sector": "Healthcare",
+        "industry": "Drug Manufacturers\u2014Specialty & Generic",
+        "market": "",
+        "similarity_score": 100,
+        "is_valid": false,
+        "verification_data": {
+          "reason": "Verification error: 429 Client Error: Too Many Requests for url: https://query2.finance.yahoo.com/v10/finance/quoteSummary/AARTIDRUGS.NS?modules=summaryProfile%2CfinancialData%2CquoteType%2CdefaultKeyStatistics%2CassetProfile%2CsummaryDetail&ssl=true"
+        }
+      },
+      {
+        "symbol": "AARTIDRUGS.BO",
+        "name": "Aarti Drugs Limited",
+        "exchange": "BSE",
+        "sector": "Healthcare",
+        "industry": "Drug Manufacturers\u2014Specialty & Generic",
+        "market": "",
+        "similarity_score": 100,
+        "is_valid": false,
+        "verification_data": {
+          "reason": "Verification error: 429 Client Error: Too Many Requests for url: https://query2.finance.yahoo.com/v10/finance/quoteSummary/AARTIDRUGS.BO?modules=summaryProfile%2CfinancialData%2CquoteType%2CdefaultKeyStatistics%2CassetProfile%2CsummaryDetail&ssl=true"
+        }
+      }
+    ]
+  },
+  {
+    "sc_code": "514274",
+    "sc_name": "AARVEE DENIM",
+    "status": "failed",
+    "reason": "No valid symbols found",
+    "candidates": [
+      {
+        "symbol": "AARVEEDEN.BO",
+        "name": "Aarvee Denims and Exports Ltd.",
+        "exchange": "BOM",
+        "sector": "Consumer Cyclical",
+        "industry": "Textile Manufacturing",
+        "market": "",
+        "similarity_score": 65,
+        "is_valid": false,
+        "verification_data": {
+          "reason": "Verification error: 429 Client Error: Too Many Requests for url: https://query2.finance.yahoo.com/v10/finance/quoteSummary/AARVEEDEN.BO?modules=summaryProfile%2CfinancialData%2CquoteType%2CdefaultKeyStatistics%2CassetProfile%2CsummaryDetail&ssl=true"
+        }
+      },
+      {
+        "symbol": "AARVEEDEN.NS",
+        "name": "Aarvee Denims and Exports Ltd.",
+        "exchange": "NSE",
+        "sector": "Consumer Cyclical",
+        "industry": "Textile Manufacturing",
+        "market": "",
+        "similarity_score": 65,
+        "is_valid": false,
+        "verification_data": {
+          "reason": "Verification error: 429 Client Error: Too Many Requests for url: https://query2.finance.yahoo.com/v10/finance/quoteSummary/AARVEEDEN.NS?modules=summaryProfile%2CfinancialData%2CquoteType%2CdefaultKeyStatistics%2CassetProfile%2CsummaryDetail&ssl=true"
+        }
+      },
+      {
+        "symbol": "AARVEEDEN.BO",
+        "name": "Aarvee Denims and Exports Ltd.",
+        "exchange": "BOM",
+        "sector": "Consumer Cyclical",
+        "industry": "Textile Manufacturing",
+        "market": "",
+        "similarity_score": 65,
+        "is_valid": false,
+        "verification_data": {
+          "reason": "Verification error: 429 Client Error: Too Many Requests for url: https://query2.finance.yahoo.com/v10/finance/quoteSummary/AARVEEDEN.BO?modules=summaryProfile%2CfinancialData%2CquoteType%2CdefaultKeyStatistics%2CassetProfile%2CsummaryDetail&ssl=true"
+        }
+      },
+      {
+        "symbol": "AARVEEDEN.NS",
+        "name": "Aarvee Denims and Exports Ltd.",
+        "exchange": "NSE",
+        "sector": "Consumer Cyclical",
+        "industry": "Textile Manufacturing",
+        "market": "",
+        "similarity_score": 65,
+        "is_valid": false,
+        "verification_data": {
+          "reason": "Verification error: 429 Client Error: Too Many Requests for url: https://query2.finance.yahoo.com/v10/finance/quoteSummary/AARVEEDEN.NS?modules=summaryProfile%2CfinancialData%2CquoteType%2CdefaultKeyStatistics%2CassetProfile%2CsummaryDetail&ssl=true"
+        }
+      }
+    ]
+  },
+  {
+    "sc_code": "523204",
+    "sc_name": "ABAN OFFSHO",
+    "status": "failed",
+    "reason": "No valid symbols found",
+    "candidates": [
+      {
+        "symbol": "ABAN.BO",
+        "name": "Aban Offshore Limited",
+        "exchange": "BSE",
+        "sector": "Energy",
+        "industry": "Oil & Gas Drilling",
+        "market": "",
+        "similarity_score": 92,
+        "is_valid": false,
+        "verification_data": {
+          "reason": "Verification error: 429 Client Error: Too Many Requests for url: https://query2.finance.yahoo.com/v10/finance/quoteSummary/ABAN.BO?modules=summaryProfile%2CfinancialData%2CquoteType%2CdefaultKeyStatistics%2CassetProfile%2CsummaryDetail&ssl=true"
+        }
+      },
+      {
+        "symbol": "ABAN.NS",
+        "name": "Aban Offshore Limited",
+        "exchange": "NSI",
+        "sector": "Energy",
+        "industry": "Oil & Gas Drilling",
+        "market": "",
+        "similarity_score": 92,
+        "is_valid": false,
+        "verification_data": {
+          "reason": "Verification error: 429 Client Error: Too Many Requests for url: https://query2.finance.yahoo.com/v10/finance/quoteSummary/ABAN.NS?modules=summaryProfile%2CfinancialData%2CquoteType%2CdefaultKeyStatistics%2CassetProfile%2CsummaryDetail&ssl=true"
+        }
+      }
+    ]
+  },
+  {
+    "sc_code": "520123",
+    "sc_name": "ABC INDIA",
+    "status": "failed",
+    "reason": "No valid symbols found",
+    "candidates": [
+      {
+        "symbol": "ABCINDQ.BO",
+        "name": "ABC India Limited",
+        "exchange": "BSE",
+        "sector": "Industrials",
+        "industry": "Trucking",
+        "market": "",
+        "similarity_score": 100,
+        "is_valid": false,
+        "verification_data": {
+          "reason": "Verification error: 429 Client Error: Too Many Requests for url: https://query2.finance.yahoo.com/v10/finance/quoteSummary/ABCINDQ.BO?modules=summaryProfile%2CfinancialData%2CquoteType%2CdefaultKeyStatistics%2CassetProfile%2CsummaryDetail&ssl=true"
+        }
+      }
+    ]
+  },
+  {
+    "sc_code": "540691",
+    "sc_name": "ABCAPITAL",
+    "status": "failed",
+    "reason": "No valid symbols found",
+    "candidates": [
+      {
+        "symbol": "ABCAPITAL.BO",
+        "name": "Aditya Birla Capital Limited",
+        "exchange": "BSE",
+        "sector": "Financial Services",
+        "industry": "Financial Conglomerates",
+        "market": "",
+        "similarity_score": 62,
+        "is_valid": false,
+        "verification_data": {
+          "reason": "Verification error: 429 Client Error: Too Many Requests for url: https://query2.finance.yahoo.com/v10/finance/quoteSummary/ABCAPITAL.BO?modules=summaryProfile%2CfinancialData%2CquoteType%2CdefaultKeyStatistics%2CassetProfile%2CsummaryDetail&ssl=true"
+        }
+      },
+      {
+        "symbol": "ABCAPITAL.NS",
+        "name": "Aditya Birla Capital Limited",
+        "exchange": "NSI",
+        "sector": "Financial Services",
+        "industry": "Financial Conglomerates",
+        "market": "",
+        "similarity_score": 62,
+        "is_valid": false,
+        "verification_data": {
+          "reason": "Verification error: 429 Client Error: Too Many Requests for url: https://query2.finance.yahoo.com/v10/finance/quoteSummary/ABCAPITAL.NS?modules=summaryProfile%2CfinancialData%2CquoteType%2CdefaultKeyStatistics%2CassetProfile%2CsummaryDetail&ssl=true"
+        }
+      },
+      {
+        "symbol": "ABCAPITAL-BL.NS",
+        "name": "ADITYA BIRLA CAPITAL LTD.",
+        "exchange": "NSI",
+        "sector": "",
+        "industry": "",
+        "market": "",
+        "similarity_score": 62,
+        "is_valid": false,
+        "verification_data": {
+          "reason": "Verification error: 429 Client Error: Too Many Requests for url: https://query2.finance.yahoo.com/v10/finance/quoteSummary/ABCAPITAL-BL.NS?modules=summaryProfile%2CfinancialData%2CquoteType%2CdefaultKeyStatistics%2CassetProfile%2CsummaryDetail&ssl=true"
+        }
+      }
+    ]
+  }
+]

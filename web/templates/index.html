@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Momentum vs Relative Strength Analysis</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Momentum vs Relative Strength Analysis</h1>
+            <p>Interactive quadrant analysis showing momentum (Y-axis) vs relative strength (X-axis) for industry indices</p>
+            <nav class="page-nav">
+                <a href="/journey" class="nav-link">View Quadrant Journey →</a>
+                <span style="margin: 0 10px;">|</span>
+                <a href="/journey-smoothed" class="nav-link">Smoothed Journey →</a>
+                <span style="margin: 0 10px;">|</span>
+                <a href="/industry-analysis" class="nav-link">Industry Analysis →</a>
+            </nav>
+        </header>
+
+        <div class="controls">
+            <div class="control-group">
+                <label for="periodSelect">Time Period:</label>
+                <select id="periodSelect">
+                    <option value="30d" selected>30 Days</option>
+                    <option value="90d">90 Days</option>
+                    <option value="180d">180 Days</option>
+                </select>
+            </div>
+            
+            <div class="control-group">
+                <label for="industrySelect">Industry Filter:</label>
+                <select id="industrySelect">
+                    <option value="all" selected>All Industries</option>
+                </select>
+            </div>
+            
+            <button id="refreshBtn" class="refresh-btn">Refresh Data</button>
+        </div>
+
+        <div class="chart-container">
+            <canvas id="momentumChart"></canvas>
+        </div>
+
+        <div class="stats-panel">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h3>Top Momentum</h3>
+                    <div id="topMomentum" class="stat-content">Loading...</div>
+                </div>
+                <div class="stat-card">
+                    <h3>Top Relative Strength</h3>
+                    <div id="topRelativeStrength" class="stat-content">Loading...</div>
+                </div>
+                <div class="stat-card">
+                    <h3>Best Combined</h3>
+                    <div id="bestCombined" class="stat-content">Loading...</div>
+                </div>
+                <div class="stat-card">
+                    <h3>Data Summary</h3>
+                    <div id="dataSummary" class="stat-content">Loading...</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="legend">
+            <h3>Quadrant Analysis</h3>
+            <div class="legend-items">
+                <div class="legend-item">
+                    <span class="legend-color" style="background-color: #2ecc71;"></span>
+                    <span><strong>Leaders:</strong> High Momentum + Strong Relative Strength (Top-Right)</span>
+                </div>
+                <div class="legend-item">
+                    <span class="legend-color" style="background-color: #3498db;"></span>
+                    <span><strong>Improving:</strong> High Momentum + Weak Relative Strength (Top-Left)</span>
+                </div>
+                <div class="legend-item">
+                    <span class="legend-color" style="background-color: #f39c12;"></span>
+                    <span><strong>Weakening:</strong> Low Momentum + Strong Relative Strength (Bottom-Right)</span>
+                </div>
+                <div class="legend-item">
+                    <span class="legend-color" style="background-color: #e74c3c;"></span>
+                    <span><strong>Laggards:</strong> Low Momentum + Weak Relative Strength (Bottom-Left)</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="loadingOverlay" class="loading-overlay">
+        <div class="loading-spinner"></div>
+        <p>Loading data...</p>
+    </div>
+
+    <div id="tooltip" class="custom-tooltip"></div>
+
+    <script src="../static/js/chart.js"></script>
+</body>
+</html>

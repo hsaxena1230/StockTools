@@ -26,13 +26,35 @@ python3 --version
 pip3 --version
 ```
 
-### Step 3: Install PostgreSQL
+### Step 3: Install PostgreSQL and TimescaleDB
 ```bash
 # Install PostgreSQL
 sudo apt install postgresql postgresql-contrib -y
 
+# Add TimescaleDB repository
+sudo sh -c "echo 'deb https://packagecloud.io/timescale/timescaledb/ubuntu/ $(lsb_release -cs) main' > /etc/apt/sources.list.d/timescaledb.list"
+
+# Add TimescaleDB GPG key
+wget --quiet -O - https://packagecloud.io/timescale/timescaledb/gpgkey | sudo apt-key add -
+
+# Update package list
+sudo apt update
+
+# Install TimescaleDB
+# For PostgreSQL 14 (Ubuntu 22.04)
+sudo apt install timescaledb-2-postgresql-14 -y
+
+# For PostgreSQL 15 (Ubuntu 23.04+)
+# sudo apt install timescaledb-2-postgresql-15 -y
+
+# For PostgreSQL 16 (Ubuntu 24.04)
+# sudo apt install timescaledb-2-postgresql-16 -y
+
+# Configure PostgreSQL for TimescaleDB
+sudo timescaledb-tune --quiet --yes
+
 # Start and enable PostgreSQL service
-sudo systemctl start postgresql
+sudo systemctl restart postgresql
 sudo systemctl enable postgresql
 
 # Verify PostgreSQL is running
@@ -140,12 +162,26 @@ nano .env
 
 ## Initial Data Setup
 
-### Step 1: Initialize Database Tables
+### Step 1: Initialize Database Tables with TimescaleDB
 ```bash
 # Activate virtual environment if not already active
 source venv/bin/activate
 
-# The tables will be created automatically when you run the first script
+# Create all tables with TimescaleDB hypertables
+psql -h localhost -U stockuser -d stock_tools -f create_tables.sql
+
+# Or manually in psql:
+psql -h localhost -U stockuser -d stock_tools
+\i create_tables.sql
+\q
+
+# Verify TimescaleDB is enabled
+psql -h localhost -U stockuser -d stock_tools -c "\dx"
+# Should show timescaledb in the list of extensions
+
+# Verify hypertable was created
+psql -h localhost -U stockuser -d stock_tools -c "SELECT * FROM timescaledb_information.hypertables;"
+# Should show stock_prices as a hypertable
 ```
 
 ### Step 2: Load Stock Data
